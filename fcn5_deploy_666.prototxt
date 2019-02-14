@@ -1,0 +1,427 @@
+name: "lenet6"
+layer {
+  name: "data"
+  type: "Input"
+  top: "data"
+  input_param {
+    shape {
+      dim: 1
+      dim: 3
+      dim: 200
+      dim: 200
+    }
+  }
+  precision_param {
+    bw_layer_out: 6
+    th_layer_out: 148.765808105
+  }
+}
+layer {
+  name: "conv1_1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1_1"
+  convolution_param {
+    num_output: 40
+    pad: 0
+    kernel_size: 3
+    stride: 1
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    bw_params: 6
+    th_layer_in: 148.765808105
+    th_layer_out: 225.512802124
+    th_params: 0.316039711237
+    th_params: 0.36308914423
+    th_params: 0.347396284342
+    th_params: 0.335352987051
+    th_params: 0.312889039516
+    th_params: 0.350417107344
+    th_params: 0.308416128159
+    th_params: 0.335265368223
+    th_params: 0.333033204079
+    th_params: 0.321763455868
+    th_params: 0.360044598579
+    th_params: 0.336872965097
+    th_params: 0.326217502356
+    th_params: 0.327422350645
+    th_params: 0.340456575155
+    th_params: 0.309314161539
+    th_params: 0.296560257673
+    th_params: 0.323594748974
+    th_params: 0.353084534407
+    th_params: 0.266887187958
+    th_params: 0.307215422392
+    th_params: 0.312730967999
+    th_params: 0.318307340145
+    th_params: 0.287157475948
+    th_params: 0.342436313629
+    th_params: 0.315166652203
+    th_params: 0.327938318253
+    th_params: 0.337943732738
+    th_params: 0.300176620483
+    th_params: 0.313337892294
+    th_params: 0.323684364557
+    th_params: 0.314607620239
+    th_params: 0.298166364431
+    th_params: 0.324389249086
+    th_params: 0.300727248192
+    th_params: 0.331602424383
+    th_params: 0.32674780488
+    th_params: 0.322044402361
+    th_params: 0.33700710535
+    th_params: 0.328162044287
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "relu1_1"
+  type: "ReLU"
+  bottom: "conv1_1"
+  top: "conv1_1"
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 225.512802124
+    th_layer_out: 225.512802124
+  }
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1_1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 3
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 225.512802124
+    th_layer_out: 225.512802124
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "conv2_1"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2_1"
+  convolution_param {
+    num_output: 80
+    pad: 0
+    kernel_size: 3
+    stride: 1
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    bw_params: 6
+    th_layer_in: 225.512802124
+    th_layer_out: 346.126312256
+    th_params: 0.109111398458
+    th_params: 0.101756446064
+    th_params: 0.102811276913
+    th_params: 0.0984263792634
+    th_params: 0.106256619096
+    th_params: 0.100652143359
+    th_params: 0.132702469826
+    th_params: 0.10394500941
+    th_params: 0.0966243222356
+    th_params: 0.096620388329
+    th_params: 0.100103914738
+    th_params: 0.119259119034
+    th_params: 0.103235177696
+    th_params: 0.113281495869
+    th_params: 0.102922253311
+    th_params: 0.0975185930729
+    th_params: 0.107252947986
+    th_params: 0.124284744263
+    th_params: 0.105889849365
+    th_params: 0.0991357788444
+    th_params: 0.107993304729
+    th_params: 0.115773230791
+    th_params: 0.113829508424
+    th_params: 0.0972436517477
+    th_params: 0.130510494113
+    th_params: 0.102677375078
+    th_params: 0.0922909379005
+    th_params: 0.115405574441
+    th_params: 0.108360618353
+    th_params: 0.0987609997392
+    th_params: 0.114045210183
+    th_params: 0.115671552718
+    th_params: 0.0972346588969
+    th_params: 0.114648140967
+    th_params: 0.107033237815
+    th_params: 0.104504555464
+    th_params: 0.115981020033
+    th_params: 0.115274965763
+    th_params: 0.107307732105
+    th_params: 0.100509107113
+    th_params: 0.0994456410408
+    th_params: 0.0924430117011
+    th_params: 0.114061869681
+    th_params: 0.108689039946
+    th_params: 0.0926645323634
+    th_params: 0.113937027752
+    th_params: 0.120746560395
+    th_params: 0.0982450097799
+    th_params: 0.103871777654
+    th_params: 0.0992691293359
+    th_params: 0.102097168565
+    th_params: 0.11854994297
+    th_params: 0.113338306546
+    th_params: 0.0996398478746
+    th_params: 0.116283357143
+    th_params: 0.113087818027
+    th_params: 0.0932707563043
+    th_params: 0.115036532283
+    th_params: 0.104818850756
+    th_params: 0.101358182728
+    th_params: 0.110546953976
+    th_params: 0.0939079672098
+    th_params: 0.0998350605369
+    th_params: 0.100912816823
+    th_params: 0.0986868366599
+    th_params: 0.0975454673171
+    th_params: 0.0996915251017
+    th_params: 0.115589901805
+    th_params: 0.100347056985
+    th_params: 0.111688025296
+    th_params: 0.111877545714
+    th_params: 0.111080363393
+    th_params: 0.112549737096
+    th_params: 0.100241236389
+    th_params: 0.0984119176865
+    th_params: 0.111783884466
+    th_params: 0.0993979871273
+    th_params: 0.101706676185
+    th_params: 0.106092080474
+    th_params: 0.103894099593
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "relu2_1"
+  type: "ReLU"
+  bottom: "conv2_1"
+  top: "conv2_1"
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 346.126312256
+    th_layer_out: 346.126312256
+  }
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "conv2_1"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 3
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 346.126312256
+    th_layer_out: 346.126312256
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "conv3_1"
+  type: "Convolution"
+  bottom: "pool2"
+  top: "conv3_1"
+  convolution_param {
+    num_output: 20
+    pad: 0
+    kernel_size: 3
+    stride: 1
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    bw_params: 6
+    th_layer_in: 346.126312256
+    th_layer_out: 228.534835815
+    th_params: 0.157566949725
+    th_params: 0.119820915163
+    th_params: 0.0956527590752
+    th_params: 0.0973175168037
+    th_params: 0.0863622277975
+    th_params: 0.088667422533
+    th_params: 0.145986959338
+    th_params: 0.176258981228
+    th_params: 0.109210774302
+    th_params: 0.104946561158
+    th_params: 0.0731635242701
+    th_params: 0.177423089743
+    th_params: 0.0914490818977
+    th_params: 0.163650646806
+    th_params: 0.15233066678
+    th_params: 0.115573577583
+    th_params: 0.121282950044
+    th_params: 0.136996164918
+    th_params: 0.146144196391
+    th_params: 0.0833341032267
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "relu3_1"
+  type: "ReLU"
+  bottom: "conv3_1"
+  top: "conv3_1"
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 228.534835815
+    th_layer_out: 228.534835815
+  }
+}
+layer {
+  name: "pool3"
+  type: "Pooling"
+  bottom: "conv3_1"
+  top: "pool3"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 228.534835815
+    th_layer_out: 228.534835815
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "conv4_1"
+  type: "Convolution"
+  bottom: "pool3"
+  top: "conv4_1"
+  convolution_param {
+    num_output: 20
+    pad: 0
+    kernel_size: 3
+    stride: 1
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    bw_params: 6
+    th_layer_in: 228.534835815
+    th_layer_out: 14.9543485641
+    th_params: 0.230358064175
+    th_params: 0.188879102468
+    th_params: 0.203920960426
+    th_params: 0.260112702847
+    th_params: 0.305788010359
+    th_params: 0.156576901674
+    th_params: 0.205471694469
+    th_params: 0.189609885216
+    th_params: 0.223349556327
+    th_params: 0.259155333042
+    th_params: 0.140228301287
+    th_params: 0.175798550248
+    th_params: 0.159194394946
+    th_params: 0.143737897277
+    th_params: 0.176610350609
+    th_params: 0.192512080073
+    th_params: 0.237082138658
+    th_params: 0.245033547282
+    th_params: 0.161971181631
+    th_params: 0.205034762621
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "relu4_1"
+  type: "ReLU"
+  bottom: "conv4_1"
+  top: "conv4_1"
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 14.9543485641
+    th_layer_out: 14.9543485641
+  }
+}
+layer {
+  name: "pool4"
+  type: "Pooling"
+  bottom: "conv4_1"
+  top: "pool4"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 14.9543485641
+    th_layer_out: 14.9543485641
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "conv5_1"
+  type: "Convolution"
+  bottom: "pool4"
+  top: "conv5_1"
+  convolution_param {
+    num_output: 2
+    pad: 0
+    kernel_size: 3
+    stride: 1
+  }
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    bw_params: 6
+    th_layer_in: 14.9543485641
+    th_layer_out: 16.2352828979
+    th_params: 0.274339228868
+    th_params: 0.258389264345
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "pool5"
+  type: "Pooling"
+  bottom: "conv5_1"
+  top: "pool5"
+  pooling_param {
+    pool: AVE
+    kernel_size: 2
+    stride: 1
+  }
+  precision_param {
+    bw_layer_in: 6
+    bw_layer_out: 6
+    th_layer_in: 16.2352828979
+    th_layer_out: 16.2352828979
+    quant_type: "Xilinx"
+  }
+}
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "pool5"
+  top: "prob"
+}
